@@ -7,7 +7,7 @@
 }
 body{
   height: 100vh;
-  background: linear-gradient(0deg,#485fc7,#eff1fa);
+  background: linear-gradient(180deg,#485fc7,#ffffff);
 }
 .todo-container{
   width: 40%;
