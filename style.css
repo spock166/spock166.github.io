@@ -135,7 +135,8 @@ body{
   font-size: 16px;
 }
 #hitbox{
-    position: absolute;
-    height: 144px;
-    width: 410px;
+  position: absolute;
+  height: 25%;
+  width: 65%;
+  left: 10%;
 }
