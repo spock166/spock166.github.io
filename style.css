@@ -134,3 +134,9 @@ body{
   font-weight: 500;
   font-size: 16px;
 }
+#hitbox{
+    position: absolute;
+    border-style: dotted;
+    min-height: 144px;
+    width: 90%;
+}

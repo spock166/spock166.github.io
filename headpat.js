@@ -9,7 +9,7 @@ document.querySelector('#push').onclick = function(){
     setTimeout(()=>{persyImg.src='PersyContent.png';},250);
 }
 
-document.querySelector('#persy-img').onclick=function(){
+document.querySelector('#hitbox').onclick=function(){
     var patsText = document.querySelector('#pats');
     var persyImg = document.querySelector('#persy-img');
     headpats+=1;
