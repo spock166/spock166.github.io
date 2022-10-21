@@ -136,7 +136,6 @@ body{
 }
 #hitbox{
     position: absolute;
-    border-style: dotted;
     min-height: 144px;
     width: 90%;
 }
