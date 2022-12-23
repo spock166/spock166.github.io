@@ -1,0 +1,106 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+
+.App-header {
+  background-color: #6b7db3;
+  min-height: 5vh;
+  min-width: 100ch;
+  display: flex;
+  flex-direction: row;
+  justify-content:left;
+  font-size: calc(10px + 2vmin);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid #9999ff;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.content-container{
+  border-radius: 5px;
+  border: 2px solid #9999ff;
+  background-color: #ccd9ff;
+  margin-bottom: 3px;
+}
+
+.persy-container{
+  position: relative;
+  background-color: #ffffff;
+  max-width: fit-content;
+  max-height: fit-content;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.hitbox-container{
+  position: absolute;
+  top: 1%;
+  height: 25%;
+  width: 80%;
+  left: 15%;
+}
+
+.warning-container{
+  background-color: rgb(151, 89, 89);
+  color: black;
+  font-style:oblique;
+  vertical-align:middle;
+}
+
+.warning-container-close{
+  background-color: rgb(151, 89, 89);
+  display: none;
+  color: black;
+  font-style:oblique;
+}
+
+.close-btn{
+  vertical-align: text-top;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.pat-btn{
+  border-radius: 10px;
+}
+
+.menu-btn{
+  background-color: #ccd9ff;
+  color: rgb(60, 129, 141);
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+
+  padding-left: 2px;
+  padding-right: 2px;
+  margin:3px;
+}
+
+.menu-btn:hover{
+  background-color: #9faac9;
+}
+
+a{
+  text-decoration: none;
+}
+
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(60, 129, 141);
+  background-color: #6b7db3;
+}
+
+.list{
+  background-color: white;
+  max-width: 75ch;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
