@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/headpat-simulator/static/css/main.dd37eea1.css",
-    "main.js": "/headpat-simulator/static/js/main.731ea0ed.js",
-    "index.html": "/headpat-simulator/index.html",
-    "main.dd37eea1.css.map": "/headpat-simulator/static/css/main.dd37eea1.css.map",
-    "main.731ea0ed.js.map": "/headpat-simulator/static/js/main.731ea0ed.js.map"
+    "main.css": "/static/css/main.b14393fd.css",
+    "main.js": "/static/js/main.1a949969.js",
+    "static/media/PersyHappy.png": "/static/media/PersyHappy.69ba43173301f0095643.png",
+    "static/media/PersyContent.png": "/static/media/PersyContent.d710888bab03669dc0c8.png",
+    "index.html": "/index.html",
+    "main.b14393fd.css.map": "/static/css/main.b14393fd.css.map",
+    "main.1a949969.js.map": "/static/js/main.1a949969.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd37eea1.css",
-    "static/js/main.731ea0ed.js"
+    "static/css/main.b14393fd.css",
+    "static/js/main.1a949969.js"
   ]
 }
