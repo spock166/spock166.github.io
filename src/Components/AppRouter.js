@@ -9,7 +9,7 @@ import Headpat from '../Pages/Headpat';
 
 function AppRouter(){
     return(
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/anime" element={<Anime />} />
@@ -17,7 +17,7 @@ function AppRouter(){
                 <Route path="/todo" element={<ToDo />} />
                 <Route path="/headpat" element={<Headpat />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
