@@ -1,22 +1,142 @@
+:root{
+  --textColor: #3c818d;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
   display: flex;
 }
 
+.header{
+  background-color: #ccd9ff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
 
-.App-header {
+.logo{
+  display: inline-block;
+  color: var(--textColor);
+  font-size: 60px;
+  margin-left: 10px;
+}
+
+.nav{
+  width: 100%;
+  height: 75%;
+  position:fixed;
+  background-color: #ccd9ff;
+  overflow: hidden;
+}
+
+.menu a{
+  display: block;
+  padding: 30px;
+  color:var(--textColor)
+}
+
+.menu a:hover{
   background-color: #6b7db3;
-  min-height: 5vh;
-  min-width: 100ch;
-  display: flex;
-  flex-direction: row;
-  justify-content:left;
-  font-size: calc(10px + 2vmin);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border: 2px solid #9999ff;
-  color: white;
-  margin-bottom: 3px;
+}
+
+.nav{
+  max-height: 0;
+  transition: max-height .5s ease-out;
+}
+
+.hamb{
+  cursor: pointer;
+  float:right;
+  padding: 40px 20px;
+}
+
+.hamb-line{
+  background: var(--textColor);
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+}
+
+.hamb-line::before,.hamb-line::after{
+  background:var(--textColor);
+  content:'';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.hamb-line::before{
+  top: 5px;
+}
+
+.hamb-line::after{
+  top:-5px;
+}
+
+.side-menu{
+  display: none;
+}
+
+.side-menu:checked ~ nav{
+  max-height: 100%;
+}
+
+.side-menu:checked ~ .hamb .hamb-line{
+  background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before{
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after{
+  transform: rotate(45deg);
+  top: 0;
+}
+
+@media (min-width: 768px){
+  .nav{
+    max-height: none;
+    top: 0;
+    position: relative;
+    float: right;
+    width: fit-content;
+    background-color: transparent;
+  }
+
+  .menu li{
+    float:left;
+  }
+
+  .menu a{
+    background-color: #c2cef1;
+    color: var(--txtColor);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-color: #3c818d;
+    margin-top: 2px;
+    margin-left:5px;
+    margin-bottom: -5px;
+  }
+
+  .menu a:hover{
+    background-color: transparent;
+    background-color: #9faac9;
+  }
+
+  .hamb{
+    display: none;
+  }
 }
 
 .App-link {
@@ -71,31 +191,18 @@
   border-radius: 10px;
 }
 
-.menu-btn{
-  background-color: #ccd9ff;
-  color: rgb(60, 129, 141);
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-
-  padding-left: 2px;
-  padding-right: 2px;
-  margin:3px;
-}
-
-.menu-btn:hover{
-  background-color: #9faac9;
-}
-
 a{
   text-decoration: none;
 }
 
 body{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(60, 129, 141);
+  color: var(--textColor);
   background-color: #6b7db3;
+}
+
+ul{
+  list-style: none;
 }
 
 .list{

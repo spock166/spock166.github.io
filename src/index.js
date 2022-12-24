@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import ReactDOM from 'react-dom/client';
-import{BrowserRouter, Routes, Route, HashRouter} from 'react-router-dom';
+import{ Routes, Route, HashRouter} from 'react-router-dom';
 
 import Home from './Pages/Home';
 import Anime from './Pages/Anime';
@@ -13,26 +13,33 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HashRouter>
   <div>
-    <div className='App-header'>
-      <a className='menu-btn' href='/'>Home</a>
-      <a className='menu-btn' href='#/anime'>Anime</a>
-      <a className='menu-btn' href='#/math'>Math</a>
-      <a className='menu-btn' href='#/todo'>To Do Utility</a>
-      <a className='menu-btn' href='#/headpat'>Headpats</a>
+    <header className='header'>
+      <a href='/' class="logo">KDM</a> 
 
-      <a className='menu-btn' href="https://www.insidejazzkc.com/home/jazz" target="_blank">You Like Jazz?</a>
-      <a className='menu-btn' href="https://youtu.be/SCrzYRTewzU" target="_blank">You Don't Like Jazz?</a>
-    </div>
+      <input className='side-menu' type = 'checkbox' id='side-menu'/>
+      <label className='hamb' for='side-menu'><span className='hamb-line'></span></label>
 
+      <nav className = 'nav'>
+        <ul className='menu'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='#/anime'>Anime</a></li>
+        <li><a href='#/math'>Math</a></li>
+        <li><a href='#/todo'>To Do Utility</a></li>
+        <li><a href='#/headpat'>Headpats</a></li>
+        <li><a href="https://www.insidejazzkc.com/home/jazz" target="_blank">You Like Jazz?</a></li>
+        <li><a href="https://youtu.be/SCrzYRTewzU" target="_blank">You Don't Like Jazz?</a>    </li>
+        </ul>
+      </nav>
+      
+    </header>
     
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/anime" element={<Anime />} />
-                <Route path="/math" element={<Math />} />
-                <Route path="/todo" element={<ToDo />} />
-                <Route path="/headpat" element={<Headpat />} />
-            </Routes>
-    
-</div>
-</HashRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/anime" element={<Anime />} />
+      <Route path="/math" element={<Math />} />
+      <Route path="/todo" element={<ToDo />} />
+      <Route path="/headpat" element={<Headpat />} />
+    </Routes>
+  </div>
+  </HashRouter>
 );
