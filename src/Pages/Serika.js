@@ -22,11 +22,11 @@ function Serika() {
         
       </div>
       <div className='content-container row-container'>
-        <div className='column-container'>
+        <div className='column-container serika-column'>
             Input:
-            <textarea autoFocus rows="20" cols="40" wrap="hard" value={inputText} onChange={handleChange}></textarea>
+            <textarea autoFocus rows="28" cols="40" wrap="hard" value={inputText} onChange={handleChange}></textarea>
         </div>
-        <div className="column-container">
+        <div className="column-container serika-column">
             Output:
             <Interpreter input={inputText}/>
         </div>

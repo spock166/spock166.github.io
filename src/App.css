@@ -179,7 +179,10 @@
   display: flex;
   flex-direction: column;
   flex: auto;
-  max-width: 100%;
+}
+
+.serika-column{
+  max-width: 50%;
 }
 
 .warning-container{
@@ -192,6 +195,7 @@
 .preview-container{
   background-color: white;
   height:400px;
+  overflow: scroll;
 }
 
 .warning-container-close{
@@ -231,6 +235,10 @@ textarea{
 
 iframe{
   width: 100%;
+}
+
+code{
+  color: black;
 }
 
 .list{

@@ -1,3 +1,4 @@
+import { tab } from "@testing-library/user-event/dist/tab";
 import { useState } from "react";
 
 function countMatches(str, re){
@@ -51,34 +52,56 @@ function parseString(rawText){
 
     for(var line of lines){
         if(line.match(/^\@{2}/)){
-            output += "<h2>" + parseLine(line.substring(2)) + "</h2>";
+            output += "<h2>" + parseLine(line.substring(2)) + "</h2>\n";
         }else if(line.match(/^\@{1}/)){
-            output += "<h1>" + parseLine(line.substring(1)) + "</h1>";
+            output += "<h1>" + parseLine(line.substring(1)) + "</h1>\n";
         }else if(previousLine == "" && !line.match(/^\s*$/)){
-            output += "</p><p>";
-            output += parseLine(line);
+            output += "</p>\n<p>\n";
+            output += parseLine(line) + "\n";
             isParagraphOpen=true;
         }else if(!line.match(/^\s*$/)){
             if(!isParagraphOpen){
-                output += "<p>";
+                output += "<p>\n";
                 isParagraphOpen=true;
             }
-            output += parseLine(line);
+            output += parseLine(line) + "\n";
         }
         previousLine=line;
+    }
+
+    if(isParagraphOpen){
+        output+="</p>\n";
     }
     
     return output;
 }
 
 function Interpreter({input}){
-    var output = "<!DOCTYPE HTML><html><body>"+parseString(input)+"</body></html>"
+    const [activeTab,setActiveTab] = useState(tabs.Preview);
+
+    var output = "<!DOCTYPE HTML>\n<html>\n<body>\n"+parseString(input)+"</body>\n</html>"
+
+    const isVisible = (tabName)=>{return activeTab===tabName;};
+
+    const handleOnClick = (tabName)=>{if(!isVisible(tabName)){setActiveTab(tabName);}};
 
     return (
     <div>
-        <iframe className="preview-container" srcDoc={output}></iframe>
+        <div className="tabStrip">
+            <button onClick={()=>handleOnClick(tabs.Preview)}>Preview</button>
+            <button onClick={()=>handleOnClick(tabs.RawHTML)}>Raw HTML</button>
+        </div>
+        <div>
+            <iframe className="preview-container" style={{display:isVisible(tabs.Preview)?"block":"none"}} srcDoc={output}></iframe>
+            <div className="preview-container" style={{display:isVisible(tabs.RawHTML)?"block":"none",whiteSpace:"pre-line"}}><code>{output}</code></div>
+        </div>
     </div>
     );
+}
+
+const tabs={
+    Preview:"Preview",
+    RawHTML:"Raw HTML",
 }
 
 export default Interpreter;
