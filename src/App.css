@@ -148,6 +148,7 @@
   border: 2px solid #9999ff;
   background-color: #ccd9ff;
   margin-bottom: 3px;
+  display: grid;
 }
 
 .persy-container{
@@ -167,11 +168,30 @@
   left: 15%;
 }
 
+.row-container{
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  justify-content: center;
+}
+
+.column-container{
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  max-width: 100%;
+}
+
 .warning-container{
   background-color: rgb(151, 89, 89);
   color: black;
   font-style:oblique;
   vertical-align:middle;
+}
+
+.preview-container{
+  background-color: white;
+  height:400px;
 }
 
 .warning-container-close{
@@ -203,6 +223,14 @@ body{
 
 ul{
   list-style: none;
+}
+
+textarea{
+  resize:none;
+}
+
+iframe{
+  width: 100%;
 }
 
 .list{
