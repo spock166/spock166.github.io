@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.9c8f61df.css",
-    "main.js": "/static/js/main.9625b9ee.js",
+    "main.css": "/static/css/main.490fcedd.css",
+    "main.js": "/static/js/main.08f30cb2.js",
     "static/media/PersyHappy.png": "/static/media/PersyHappy.69ba43173301f0095643.png",
     "static/media/PersyContent.png": "/static/media/PersyContent.d710888bab03669dc0c8.png",
+    "static/media/Onoe_Serika.webp": "/static/media/Onoe_Serika.f218d7cbb8e02f8c916d.webp",
     "index.html": "/index.html",
-    "main.9c8f61df.css.map": "/static/css/main.9c8f61df.css.map",
-    "main.9625b9ee.js.map": "/static/js/main.9625b9ee.js.map"
+    "main.490fcedd.css.map": "/static/css/main.490fcedd.css.map",
+    "main.08f30cb2.js.map": "/static/js/main.08f30cb2.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c8f61df.css",
-    "static/js/main.9625b9ee.js"
+    "static/css/main.490fcedd.css",
+    "static/js/main.08f30cb2.js"
   ]
 }
