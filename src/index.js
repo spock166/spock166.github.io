@@ -9,6 +9,7 @@ import Math from './Pages/Math';
 import ToDo from './Pages/ToDo';
 import Headpat from './Pages/Headpat';
 import Serika from './Pages/Serika';
+import Fall from './Pages/Fall';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -42,6 +43,7 @@ root.render(
       <Route path="/todo" element={<ToDo />} />
       <Route path="/headpat" element={<Headpat />} />
       <Route path="/serika" element={<Serika />} />
+      <Route path="/fall" element={<Fall />} />
     </Routes>
   </div>
   </HashRouter>
