@@ -30,7 +30,7 @@ root.render(
         <li><a href='#/headpat'>Headpats</a></li>
         <li><a href='#/serika'>Serika</a></li>
         <li><a href="https://www.insidejazzkc.com/home/jazz" target="_blank">You Like Jazz?</a></li>
-        <li><a href="https://youtu.be/SCrzYRTewzU" target="_blank">You Don't Like Jazz?</a>    </li>
+        <li><a href="https://youtu.be/Qjqn37HKYaE" target="_blank">You Don't Like Jazz?</a>    </li>
         </ul>
       </nav>
       
