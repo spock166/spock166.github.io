@@ -1,0 +1,50 @@
+:root {
+  --textColor: #3c818d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content-container {
+  border-radius: 5px;
+  border: 2px solid #9999ff;
+  background-color: #ccd9ff;
+  margin-bottom: 3px;
+  display: grid;
+}
+
+.preview-container {
+  background-color: white;
+  height: 400px;
+  overflow: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: darkblue
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--textColor);
+  background-color: #6b7db3;
+}
+
+ul {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}
+
+iframe {
+  width: 100%;
+}
+
+code {
+  color: black;
+}

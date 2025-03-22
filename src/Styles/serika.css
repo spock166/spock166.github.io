@@ -1,0 +1,13 @@
+.column-container {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    justify-content: center;
+}
