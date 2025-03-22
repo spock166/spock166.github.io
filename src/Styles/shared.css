@@ -8,11 +8,17 @@
   box-sizing: border-box;
 }
 
+html {
+  max-width: 1000px;
+  margin: auto
+}
+
 .content-container {
   border-radius: 5px;
   border: 2px solid #9999ff;
   background-color: #ccd9ff;
   margin-bottom: 3px;
+  padding: 5px;
   display: grid;
 }
 

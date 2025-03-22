@@ -3,13 +3,14 @@
     position: sticky;
     top: 0;
     width: 100%;
+    margin-bottom: 3px;
 }
 
 .logo {
     display: inline-block;
     color: var(--textColor);
-    font-size: 60px;
-    margin-left: 10px;
+    font-size: 32px;
+    padding-left: 3px;
 }
 
 .nav {
@@ -22,7 +23,7 @@
 
 .menu a {
     display: block;
-    padding: 30px;
+    padding: 9px;
     color: var(--textColor)
 }
 
@@ -38,7 +39,7 @@
 .hamb {
     cursor: pointer;
     float: right;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 
 .hamb-line {
@@ -61,11 +62,11 @@
 }
 
 .hamb-line::before {
-    top: 5px;
+    top: 4px;
 }
 
 .hamb-line::after {
-    top: -5px;
+    top: -4px;
 }
 
 .side-menu {
@@ -102,13 +103,12 @@
 
     .menu li {
         float: left;
+        height: 43px;
     }
 
     .menu a {
         background-color: #c2cef1;
         color: var(--txtColor);
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
         border-color: #3c818d;
         margin-top: 2px;
         margin-left: 5px;
