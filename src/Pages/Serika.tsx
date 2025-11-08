@@ -25,11 +25,11 @@ function Serika(): React.JSX.Element {
       </div>
       <div className='content-container row-container'>
         <div className='column-container'>
-          Input:
+          <p>Input:</p>
           <textarea autoFocus rows={28} cols={40} wrap="hard" value={inputText} onChange={handleChange}></textarea>
         </div>
         <div className="column-container">
-          Output:
+          <p>Output:</p>
           <Interpreter input={inputText} />
         </div>
       </div>

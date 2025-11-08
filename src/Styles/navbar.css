@@ -1,72 +1,134 @@
 .header {
-    background-color: #ccd9ff;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-primary);
     position: sticky;
     top: 0;
     width: 100%;
-    margin-bottom: 3px;
+    margin-bottom: 20px;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
 }
 
 .logo {
     display: inline-block;
-    color: var(--textColor);
+    color: var(--text-primary);
     font-size: 32px;
-    padding-left: 3px;
+    font-weight: 700;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 .nav {
     width: 100%;
-    height: 75%;
+    height: 100vh;
     position: fixed;
-    background-color: #ccd9ff;
+    top: 0;
+    left: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
     overflow: hidden;
+    z-index: 999;
+}
+
+.menu {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 .menu a {
     display: block;
-    padding: 9px;
-    color: var(--textColor)
+    padding: 16px 32px;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    transition: left 0.5s ease;
 }
 
 .menu a:hover {
-    background-color: #6b7db3;
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.menu a:hover::before {
+    left: 100%;
 }
 
 .nav {
     max-height: 0;
-    transition: max-height .5s ease-out;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamb {
     cursor: pointer;
     float: right;
-    padding: 20px 20px;
+    padding: 20px;
+    z-index: 1001;
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hamb:hover {
+    background: rgba(139, 92, 246, 0.1);
 }
 
 .hamb-line {
-    background: var(--textColor);
+    background: var(--text-primary);
     display: block;
-    height: 2px;
+    height: 3px;
     position: relative;
     width: 24px;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamb-line::before,
 .hamb-line::after {
-    background: var(--textColor);
+    background: var(--text-primary);
     content: '';
     display: block;
     height: 100%;
     position: absolute;
-    transition: all .2s ease-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
+    border-radius: 2px;
 }
 
 .hamb-line::before {
-    top: 4px;
+    top: 6px;
 }
 
 .hamb-line::after {
-    top: -4px;
+    top: -6px;
 }
 
 .side-menu {
@@ -74,7 +136,7 @@
 }
 
 .side-menu:checked~nav {
-    max-height: 100%;
+    max-height: 100vh;
 }
 
 .side-menu:checked~.hamb .hamb-line {
@@ -84,11 +146,13 @@
 .side-menu:checked~.hamb .hamb-line::before {
     transform: rotate(-45deg);
     top: 0;
+    background: var(--accent-primary);
 }
 
 .side-menu:checked~.hamb .hamb-line::after {
     transform: rotate(45deg);
     top: 0;
+    background: var(--accent-primary);
 }
 
 @media (min-width: 768px) {
@@ -98,26 +162,38 @@
         position: relative;
         float: right;
         width: fit-content;
-        background-color: transparent;
+        background: transparent;
+        backdrop-filter: none;
+        height: auto;
+    }
+
+    .menu {
+        padding-top: 0;
+        flex-direction: row;
+        gap: 12px;
+        padding: 12px 20px;
     }
 
     .menu li {
-        float: left;
-        height: 43px;
+        height: auto;
     }
 
     .menu a {
-        background-color: #c2cef1;
-        color: var(--txtColor);
-        border-color: #3c818d;
-        margin-top: 2px;
-        margin-left: 5px;
-        margin-bottom: -5px;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid var(--border-primary);
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
 
     .menu a:hover {
-        background-color: transparent;
-        background-color: #9faac9;
+        background: var(--accent-primary);
+        color: var(--text-primary);
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow);
     }
 
     .hamb {
