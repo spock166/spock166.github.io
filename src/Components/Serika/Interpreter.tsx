@@ -1,10 +1,22 @@
+import React from 'react';
 import { useState } from "react";
 
-function countMatches(str, re) {
+interface InterpreterProps {
+    input: string;
+}
+
+const tabs = {
+    Preview: "Preview",
+    RawHTML: "Raw HTML",
+} as const;
+
+type TabType = typeof tabs[keyof typeof tabs];
+
+function countMatches(str: string, re: RegExp): number {
     return ((str || '').match(re) || []).length;
 }
 
-function parseLine(rawLine) {
+function parseLine(rawLine: string | null): string {
     if (rawLine == null) {
         return "";
     }
@@ -19,7 +31,7 @@ function parseLine(rawLine) {
     if (countMatches(output, /\//g) % 2 == 1 || output.match(/\/\s*\//)) {
         return "<div style=\"background:#cc0000;color:#cccccc\"> Sytax error:  Please check your code </div>";
     }
-    output = output.replaceAll(/\/([^\/]+)\//g, "<em> $1 <\/em>");
+    output = output.replace(/\/([^\/]+)\//g, "<em> $1 <\/em>");
 
     output = output.replace(re, "\/");
 
@@ -29,7 +41,7 @@ function parseLine(rawLine) {
     if (countMatches(output, /\*/g) % 2 == 1 || output.match(/\*\s*\*/)) {
         return "THIS LINE IS SHIT AND MAKES SERIKA SAD";
     }
-    output = output.replaceAll(/\*([^\*]+)\*/g, "<b> $1 <\/b>");
+    output = output.replace(/\*([^\*]+)\*/g, "<b> $1 <\/b>");
     output = output.replace(re, "\*");
 
     //Finally take care of any remaining escape characters
@@ -42,10 +54,10 @@ function parseLine(rawLine) {
     return output;
 }
 
-function parseString(rawText) {
+function parseString(rawText: string): string {
     var isParagraphOpen = false;
     var output = "";
-    var previousLine;
+    var previousLine: string = "";
 
     let lines = rawText.split("\n");
 
@@ -75,14 +87,14 @@ function parseString(rawText) {
     return output;
 }
 
-function Interpreter({ input }) {
-    const [activeTab, setActiveTab] = useState(tabs.Preview);
+function Interpreter({ input }: InterpreterProps): React.JSX.Element {
+    const [activeTab, setActiveTab] = useState<TabType>(tabs.Preview);
 
     var output = "<!DOCTYPE HTML>\n<html>\n<body>\n" + parseString(input) + "</body>\n</html>"
 
-    const isVisible = (tabName) => { return activeTab === tabName; };
+    const isVisible = (tabName: TabType): boolean => { return activeTab === tabName; };
 
-    const handleOnClick = (tabName) => { if (!isVisible(tabName)) { setActiveTab(tabName); } };
+    const handleOnClick = (tabName: TabType): void => { if (!isVisible(tabName)) { setActiveTab(tabName); } };
 
     return (
         <div>
@@ -96,11 +108,6 @@ function Interpreter({ input }) {
             </div>
         </div>
     );
-}
-
-const tabs = {
-    Preview: "Preview",
-    RawHTML: "Raw HTML",
 }
 
 export default Interpreter;

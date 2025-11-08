@@ -1,4 +1,6 @@
-function Home() {
+import React from 'react';
+
+function Home(): React.JSX.Element {
   return (
     <div>
       <div className='content-container'>
@@ -18,25 +20,25 @@ function Home() {
   );
 }
 
-function FriendList() {
-  const friends = {
+function FriendList(): React.JSX.Element[] {
+  const friends: Record<string, string> = {
     "Sandy": "https://sandyuraz.com/",
     "Jimmy": "https://jameshurd.net/",
     "Josie": "https://jswalz.github.io/",
   }
-  const friendsList = Object.keys(friends).map(friend => {
-    return <li><a href={friends[friend]} target="_blank">{friend}</a></li>
+  const friendsList: React.JSX.Element[] = Object.keys(friends).map((friend: string) => {
+    return <li key={friend}><a href={friends[friend]} target="_blank" rel="noopener noreferrer">{friend}</a></li>
   })
 
   return shuffleList(friendsList)
 }
 
-function shuffleList(array) {
+function shuffleList<T>(array: T[]): T[] {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
-};
+}
 
 export default Home;

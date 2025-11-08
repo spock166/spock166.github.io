@@ -8,7 +8,7 @@ import { Routes, Route, HashRouter } from 'react-router-dom';
 import Home from './Pages/Home';
 import Serika from './Pages/Serika';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <HashRouter>
     <div>

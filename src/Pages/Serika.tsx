@@ -1,12 +1,13 @@
+import React from 'react';
 import '../Styles/serika.css';
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Interpreter from "../Components/Serika/Interpreter";
 import Onoe from "../Components/Serika/Onoe_Serika.webp";
 
-function Serika() {
-  const [inputText, setInputText] = useState("");
+function Serika(): React.JSX.Element {
+  const [inputText, setInputText] = useState<string>("");
 
-  const handleChange = ({ target }) => {
+  const handleChange = ({ target }: ChangeEvent<HTMLTextAreaElement>): void => {
     setInputText(target.value)
   };
 
@@ -25,7 +26,7 @@ function Serika() {
       <div className='content-container row-container'>
         <div className='column-container'>
           Input:
-          <textarea autoFocus rows="28" cols="40" wrap="hard" value={inputText} onChange={handleChange}></textarea>
+          <textarea autoFocus rows={28} cols={40} wrap="hard" value={inputText} onChange={handleChange}></textarea>
         </div>
         <div className="column-container">
           Output:
