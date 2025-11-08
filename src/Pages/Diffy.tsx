@@ -48,7 +48,7 @@ function shortestEdit(oldText: Line[], newText: Line[]): number {
 }
 
 // Enhanced version that returns the actual diff path
-function computeDiff(oldText: Line[], newText: Line[]): { editDistance: number; diff: React.JSX.Element } {
+function computeDiff(oldText: Line[], newText: Line[]): { editDistance: number; diff: React.JSX.Element; sideBySideDiff: React.JSX.Element } {
     const editDistance = shortestEdit(oldText, newText);
     
     // Create a React JSX diff visualization
@@ -105,17 +105,109 @@ function computeDiff(oldText: Line[], newText: Line[]): { editDistance: number; 
     }
     
     const diffElement = <div className="diff-container">{diffLines}</div>;
+    const sideBySideDiffElement = computeSideBySideDiff(oldText, newText);
     
     return {
         editDistance,
-        diff: diffElement
+        diff: diffElement,
+        sideBySideDiff: sideBySideDiffElement
     };
+}
+
+// Side-by-side diff computation
+function computeSideBySideDiff(oldText: Line[], newText: Line[]): React.JSX.Element {
+    const leftLines: React.JSX.Element[] = [];
+    const rightLines: React.JSX.Element[] = [];
+    
+    const maxLines = Math.max(oldText.length, newText.length);
+    
+    for (let i = 0; i < maxLines; i++) {
+        const oldLine = i < oldText.length ? oldText[i] : null;
+        const newLine = i < newText.length ? newText[i] : null;
+        
+        if (oldLine && newLine) {
+            if (oldLine.text === newLine.text) {
+                // Unchanged line - show in both sides
+                leftLines.push(
+                    <div key={`left-unchanged-${i}`} className="side-by-side-line unchanged">
+                        <span className="line-number">{oldLine.lineNumber}</span>
+                        <span className="line-content">{oldLine.text}</span>
+                    </div>
+                );
+                rightLines.push(
+                    <div key={`right-unchanged-${i}`} className="side-by-side-line unchanged">
+                        <span className="line-number">{newLine.lineNumber}</span>
+                        <span className="line-content">{newLine.text}</span>
+                    </div>
+                );
+            } else {
+                // Changed line - show old on left, new on right
+                leftLines.push(
+                    <div key={`left-changed-${i}`} className="side-by-side-line removed">
+                        <span className="line-number">{oldLine.lineNumber}</span>
+                        <span className="line-content">{oldLine.text}</span>
+                    </div>
+                );
+                rightLines.push(
+                    <div key={`right-changed-${i}`} className="side-by-side-line added">
+                        <span className="line-number">{newLine.lineNumber}</span>
+                        <span className="line-content">{newLine.text}</span>
+                    </div>
+                );
+            }
+        } else if (oldLine) {
+            // Removed line - show on left, empty on right
+            leftLines.push(
+                <div key={`left-removed-${i}`} className="side-by-side-line removed">
+                    <span className="line-number">{oldLine.lineNumber}</span>
+                    <span className="line-content">{oldLine.text}</span>
+                </div>
+            );
+            rightLines.push(
+                <div key={`right-empty-${i}`} className="side-by-side-line empty">
+                    <span className="line-number"></span>
+                    <span className="line-content"></span>
+                </div>
+            );
+        } else if (newLine) {
+            // Added line - empty on left, show on right
+            leftLines.push(
+                <div key={`left-empty-${i}`} className="side-by-side-line empty">
+                    <span className="line-number"></span>
+                    <span className="line-content"></span>
+                </div>
+            );
+            rightLines.push(
+                <div key={`right-added-${i}`} className="side-by-side-line added">
+                    <span className="line-number">{newLine.lineNumber}</span>
+                    <span className="line-content">{newLine.text}</span>
+                </div>
+            );
+        }
+    }
+    
+    return (
+        <div className="side-by-side-container">
+            <div className="side-by-side-column">
+                <div className="side-by-side-header">Text A (Original)</div>
+                <div className="side-by-side-content">
+                    {leftLines}
+                </div>
+            </div>
+            <div className="side-by-side-column">
+                <div className="side-by-side-header">Text B (Modified)</div>
+                <div className="side-by-side-content">
+                    {rightLines}
+                </div>
+            </div>
+        </div>
+    );
 }
 
 function Diffy(): React.JSX.Element {
     const [textA, setTextA] = useState<string>('');
     const [textB, setTextB] = useState<string>('');
-    const [result, setResult] = useState<{ editDistance: number; diff: React.JSX.Element } | null>(null);
+    const [result, setResult] = useState<{ editDistance: number; diff: React.JSX.Element; sideBySideDiff: React.JSX.Element } | null>(null);
     const [showResults, setShowResults] = useState<boolean>(false);
 
     const processTexts = (): void => {
@@ -205,6 +297,10 @@ function Diffy(): React.JSX.Element {
                     <div className="diff-content">
                         <h4>Line-by-line Comparison:</h4>
                         {result.diff}
+                    </div>
+                    <div className="diff-content">
+                        <h4>Side-by-side Comparison:</h4>
+                        {result.sideBySideDiff}
                     </div>
                 </div>
             )}
