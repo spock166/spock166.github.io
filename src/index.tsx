@@ -8,6 +8,7 @@ import { Routes, Route, HashRouter, Link, useLocation } from 'react-router-dom';
 import Home from './Pages/Home';
 import Serika from './Pages/Serika';
 import Diffy  from './Pages/Diffy';
+import Aquarium from './Pages/Aquarium';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -92,19 +93,34 @@ const Navigation = () => {
 };
 
 const App = () => {
+  const location = useLocation();
+  const isAquarium = location.pathname === '/aquarium';
+
+  return (
+    <div>
+      {!isAquarium && <Navigation />}
+      <Routes>
+        <Route key="Home" path="/" element={<Home />} />
+        <Route key="Serika" path="/serika" element={<Serika />} />
+        <Route key="Diffy" path="/diffy" element={<Diffy />} />
+        <Route key="Aquarium" path="/aquarium" element={<Aquarium />} />
+      </Routes>
+      {!isAquarium && (
+        <footer style={{ textAlign: 'center', padding: '20px', fontSize: '0.8rem', color: '#666' }}>
+          <Link to="/aquarium" style={{ textDecoration: 'none', opacity: 0.5 }}>🐢</Link>
+        </footer>
+      )}
+    </div>
+  );
+};
+
+const AppWrapper = () => {
   return (
     <HashRouter>
-      <div>
-        <Navigation />
-        <Routes>
-          <Route key="Home" path="/" element={<Home />} />
-          <Route key="Serika" path="/serika" element={<Serika />} />
-          <Route key="Diffy" path="/diffy" element={<Diffy />} />
-        </Routes>
-      </div>
+      <App />
     </HashRouter>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<App />);
+root.render(<AppWrapper />);
