@@ -9,6 +9,7 @@ import Home from './Pages/Home';
 import Serika from './Pages/Serika';
 import Diffy  from './Pages/Diffy';
 import Aquarium from './Pages/Aquarium';
+import Minesweeper from './Pages/Minesweeper';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,6 +87,9 @@ const Navigation = () => {
           <li>
             <Link to='/diffy' onClick={closeMenu}>Diffy</Link>
           </li>
+          <li>
+            <Link to='/minesweeper' onClick={closeMenu}>Minesweeper</Link>
+          </li>
         </ul>
       </nav>
     </header>
@@ -103,6 +107,7 @@ const App = () => {
         <Route key="Home" path="/" element={<Home />} />
         <Route key="Serika" path="/serika" element={<Serika />} />
         <Route key="Diffy" path="/diffy" element={<Diffy />} />
+        <Route key="Minesweeper" path="/minesweeper" element={<Minesweeper />} />
         <Route key="Aquarium" path="/aquarium" element={<Aquarium />} />
       </Routes>
       {!isAquarium && (
