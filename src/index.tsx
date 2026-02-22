@@ -111,8 +111,14 @@ const App = () => {
         <Route key="Aquarium" path="/aquarium" element={<Aquarium />} />
       </Routes>
       {!isAquarium && (
-        <footer style={{ textAlign: 'center', padding: '20px', fontSize: '0.8rem', color: '#666' }}>
-          <Link to="/aquarium" style={{ textDecoration: 'none', opacity: 0.5 }}>🐢</Link>
+        <footer className="retro-footer">
+          <div className="star-divider">★ ✦ ★ ✦ ★ ✦ ★</div>
+          <p>Best viewed in <b>Netscape Navigator 4.0</b> at 800×600</p>
+          <p>© 2022-2026 Kevin Marshall | <a href="mailto:kevin@kevindoesmath.net">📧 Email me!</a></p>
+          <p><Link to="/aquarium">🐢 Secret Aquarium</Link></p>
+          <p style={{ fontSize: '9px', marginTop: '8px', color: '#999999' }}>
+            Made with ❤️ and too many &lt;table&gt; tags
+          </p>
         </footer>
       )}
     </div>
