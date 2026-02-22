@@ -9,6 +9,9 @@
 
 .column-container>p {
     margin-left: var(--spacing-sm);
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
 }
 
 .row-container {
@@ -17,7 +20,7 @@
     flex: auto;
     justify-content: center;
     gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     align-items: flex-start;
 }
 

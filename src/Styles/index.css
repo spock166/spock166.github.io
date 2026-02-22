@@ -1,16 +1,13 @@
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
 code {
-  font-family: var(--font-mono);
-  background-color: var(--card-background);
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.25rem;
-  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--bg-tertiary);
+  padding: 1px 4px;
+  color: var(--text-primary);
 }

@@ -1,6 +1,6 @@
 .minesweeper-container {
-  padding: 20px;
-  max-width: 1200px;
+  padding: 12px;
+  max-width: 800px;
   margin: 0 auto;
   user-select: none;
   -webkit-user-select: none;
@@ -10,99 +10,103 @@
 .game-header {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 8px;
+  background: #C0C0C0;
+  border: 2px outset #FFFFFF;
 }
 
 .game-info {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .info-label {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: Verdana, sans-serif;
 }
 
 .info-value {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #fff;
+  color: #FF0000;
+  font-family: 'Courier New', monospace;
+  background: #000000;
+  padding: 2px 8px;
+  border: 2px inset #808080;
+  min-width: 50px;
+  text-align: center;
 }
 
 .game-controls {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
+  padding: 4px 16px;
+  background: #C0C0C0;
+  border: 2px outset #FFFFFF;
+  color: #000000;
+  font-size: 12px;
+  font-family: Verdana, sans-serif;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  background: #D0D0D0;
 }
 
 .btn:active {
-  transform: translateY(0);
+  border-style: inset;
 }
 
 .difficulty-select {
-  padding: 10px 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
+  padding: 4px 12px;
+  background: #FFFFFF;
+  border: 2px inset #808080;
+  color: #000000;
+  font-size: 12px;
+  font-family: Verdana, sans-serif;
   cursor: pointer;
 }
 
 .difficulty-select option {
-  background: #1a1a1a;
-  color: #fff;
+  background: #FFFFFF;
+  color: #000000;
 }
 
 .infinite-hint {
   text-align: center;
-  padding: 10px;
-  background: rgba(100, 150, 255, 0.1);
-  border: 1px solid rgba(100, 150, 255, 0.3);
-  border-radius: 5px;
-  margin-bottom: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
+  padding: 8px;
+  background: var(--bg-accent);
+  border: 2px ridge var(--border-primary);
+  margin-bottom: 10px;
+  color: #000000;
+  font-size: 11px;
+  font-family: Verdana, sans-serif;
 }
 
 .board {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 5px;
+  background: #C0C0C0;
+  border: 3px outset #FFFFFF;
+  padding: 4px;
   overflow: hidden;
 }
 
@@ -129,80 +133,85 @@
 }
 
 .cell {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 28px;
+  height: 28px;
+  border: 2px outset #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.1s;
-  background: rgba(80, 80, 80, 0.5);
+  background: #C0C0C0;
   position: relative;
+  font-family: Verdana, sans-serif;
 }
 
 .cell:hover {
-  background: rgba(100, 100, 100, 0.6);
+  background: #D0D0D0;
 }
 
 .cell.hidden {
-  background: rgba(80, 80, 80, 0.8);
+  background: #C0C0C0;
+  border: 2px outset #FFFFFF;
 }
 
 .cell.hidden:active {
-  background: rgba(60, 60, 60, 0.8);
+  border-style: inset;
+  background: #B0B0B0;
 }
 
 .cell.revealed {
-  background: rgba(40, 40, 40, 0.5);
+  background: #C0C0C0;
+  border: 1px solid #808080;
   cursor: default;
 }
 
 .cell.revealed:hover {
-  background: rgba(40, 40, 40, 0.5);
+  background: #C0C0C0;
 }
 
 .cell.revealed.mine {
-  background: rgba(200, 50, 50, 0.6);
+  background: #FF0000;
 }
 
 .cell.flagged {
-  background: rgba(80, 120, 180, 0.6);
+  background: #C0C0C0;
+  border: 2px outset #FFFFFF;
 }
 
-.number-1 { color: #4a9eff; }
-.number-2 { color: #5bc85b; }
-.number-3 { color: #ff5252; }
-.number-4 { color: #a855f7; }
-.number-5 { color: #ff8c00; }
-.number-6 { color: #00bcd4; }
-.number-7 { color: #ffd700; }
-.number-8 { color: #ff1744; }
+/* Classic Windows Minesweeper number colors */
+.number-1 { color: #0000FF; }
+.number-2 { color: #008000; }
+.number-3 { color: #FF0000; }
+.number-4 { color: #000080; }
+.number-5 { color: #800000; }
+.number-6 { color: #008080; }
+.number-7 { color: #000000; }
+.number-8 { color: #808080; }
 
 @media (max-width: 768px) {
   .minesweeper-container {
-    padding: 10px;
+    padding: 8px;
   }
 
   .game-header {
-    padding: 10px;
+    padding: 6px;
   }
 
   .info-value {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 4px 12px;
+    font-size: 11px;
   }
 
   .cell {
-    width: 28px;
-    height: 28px;
-    font-size: 0.9rem;
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
   }
 
   .board.infinite {
@@ -212,9 +221,9 @@
 
 @media (max-width: 480px) {
   .cell {
-    width: 24px;
-    height: 24px;
-    font-size: 0.8rem;
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
   }
 
   .board.infinite {
@@ -222,10 +231,10 @@
   }
 
   .info-label {
-    font-size: 0.75rem;
+    font-size: 9px;
   }
 
   .info-value {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
